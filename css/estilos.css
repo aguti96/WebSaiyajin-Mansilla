@@ -210,6 +210,9 @@ background-size: cover;
 background-repeat: no-repeat;
 }
 
+.mapas{
+  display: inline-block;
+}
 .logo{
     width: 5rem;
 }
@@ -224,6 +227,33 @@ background-repeat: no-repeat;
 .logo{
     width: 5rem;
 }
+
+.gorra{
+  background-position: center center;
+background-size: cover;
+background-repeat: no-repeat;
+width: 20rem;
+display: inline-block;
+}
+
+.remera{
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 20rem;
+  display: inline-block;
+}
+
+.funko{
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 20rem;
+  display: inline-block;
+}
+
+
+
 /* VENTANA DE SOBRE NOSOTROS */
 .sobrenosotros{
     background-image: url(https://w0.peakpx.com/wallpaper/779/563/HD-wallpaper-majin-vegeta-dbz.jpg);
