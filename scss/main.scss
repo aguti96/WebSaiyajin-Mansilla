@@ -1,0 +1,297 @@
+
+/* INDEX */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 100%;
+}
+
+
+h2{
+    font-size: 50px;
+}
+
+.lorem{
+  line-height: 2px;
+  padding: 15px;
+  border: 5px inset black;
+  margin: 15px;
+}
+
+ul li {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    
+    
+}
+
+.vegeta{
+  margin-left: auto;
+  display: block;
+  line-height: 2px;
+  padding: 2px;
+  border: 5px inset blue;
+}
+       
+.vegeta2{
+    line-height: 2px;
+    padding: 2px;
+    border: 5px inset blue;
+    margin: 5px;
+}
+.vegeta3{
+    background-color: transparent !important;
+    margin-left: auto;
+  display: block;
+  line-height: 2px;
+  padding: 2px;
+  border: 5px inset blue;
+}
+
+
+ul li{color: black;}
+
+li { 
+    list-style: none;
+}
+
+body {background-image: url(https://w0.peakpx.com/wallpaper/779/563/HD-wallpaper-majin-vegeta-dbz.jpg);
+background-position: center; 
+background-size: cover;
+background-repeat: no-repeat;
+
+
+}
+
+div p {font-weight: bold;
+color: black;
+font-size: 25px;
+}
+
+footer {
+    background-color: transparent !important;
+    color: black;
+    text-align: center;
+    padding: 30px 0;
+  }
+  
+  footer a {
+    text-decoration: none;
+    color: blueviolet;
+    display: inline-block;
+    margin: 63px;
+    font-size: 50px;
+    
+  }
+  footer {
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  footer .left {
+    float: left;
+  }
+  
+  footer .right {
+    float: right;
+  }
+  
+
+nav{
+    background-color: whitesmoke;
+    background: linear-gradient(to right, #333, #666);
+    color: #fff;
+    text-align: right;
+    
+}
+@media screen and (max-width: 425px) {
+    
+  }
+
+  
+    
+  
+  
+
+/* VENTANA DE CONTACTO */
+.fondo{
+    background-image: url(https://w0.peakpx.com/wallpaper/779/563/HD-wallpaper-majin-vegeta-dbz.jpg);
+background-position: center center;
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+.logo{
+    width: 5rem;
+}
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 10rem;
+  }
+  
+  label {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #666;
+  }
+  
+  input[type="text"]:focus, textarea:focus {
+    outline: none;
+    border-color: #333;
+    box-shadow: 0 0 10px #333;
+  }
+  
+  input[type="submit"] {
+    transition: all 0.3s ease;
+  }
+  
+  input[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+
+
+
+/* VENTANA DE SERVICIOS */
+.servicios{
+    background-image: url(https://w0.peakpx.com/wallpaper/779/563/HD-wallpaper-majin-vegeta-dbz.jpg);
+background-position: center center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+.logo{
+    width: 5rem;
+}
+/* VENTANA DE SUCURSALES */
+.sucursales{
+    background-image: url(https://w0.peakpx.com/wallpaper/779/563/HD-wallpaper-majin-vegeta-dbz.jpg);
+background-position: center center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+.mapas{
+  display: inline-block;
+}
+.logo{
+    width: 5rem;
+}
+/* VENTANA DE PRODUCTOS */
+.productos{
+    background-image: url(https://w0.peakpx.com/wallpaper/779/563/HD-wallpaper-majin-vegeta-dbz.jpg);
+background-position: center center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+.logo{
+    width: 5rem;
+}
+
+.gorra{
+  background-position: center center;
+background-size: cover;
+background-repeat: no-repeat;
+width: 20rem;
+display: inline-block;
+}
+
+.remera{
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 20rem;
+  display: inline-block;
+}
+
+.funko{
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 20rem;
+  display: inline-block;
+}
+$btn-bg-color: #007bff;
+$btn-color: #fff;
+$btn-font-size: 16px;
+$btn-padding: 10px 20px;
+$btn-cursor: pointer;
+
+.btn-zoom {
+  padding: $btn-padding;
+  border: none;
+  background-color: $btn-bg-color;
+  color: $btn-color;
+  font-size: $btn-font-size;
+  cursor: $btn-cursor;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.btn-zoom {
+    position: relative;
+    overflow: hidden;
+    img {
+      transition: transform 0.5s ease; 
+    }
+    &:hover img {
+      transform: scale(1.2)
+    }
+  }
+  
+
+
+
+/* VENTANA DE SOBRE NOSOTROS */
+.sobrenosotros{
+    background-image: url(https://w0.peakpx.com/wallpaper/779/563/HD-wallpaper-majin-vegeta-dbz.jpg);
+background-position: center center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+.logo{
+    width: 5rem;
+}
