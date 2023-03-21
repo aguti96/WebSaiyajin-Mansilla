@@ -7,8 +7,8 @@ html {
   font-size: 100%;
 }
 
-h2 {
-  font-size: 50px;
+.titulo {
+  color: whitesmoke;
 }
 
 .lorem {
@@ -80,7 +80,7 @@ footer a {
 }
 footer {
   background-color: #f1f1f1;
-  color: #333;
+  color: whitesmoke;
   padding: 20px;
   text-align: center;
   display: flex;
@@ -108,8 +108,7 @@ nav {
   background-repeat: no-repeat;
 }
 
-.contactos,
-.titulo {
+main h1 {
   color: whitesmoke;
 }
 
@@ -130,7 +129,7 @@ form label {
   width: 100%;
   margin-bottom: 10px;
   font-weight: bold;
-  color: #333;
+  color: whitesmoke;
 }
 form input[type=text], form textarea {
   width: 100%;
@@ -167,12 +166,15 @@ form input[type=submit]:hover {
 .imagenes table {
   border-collapse: collapse;
   width: 100%;
+  border-collapse: separate;
+  border-spacing: 20px;
 }
 .imagenes table tr td img {
   width: 100%;
   max-width: 20rem;
   display: block;
   margin: 0 auto;
+  padding: 0;
 }
 .imagenes table tr td p {
   text-align: center;

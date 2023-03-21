@@ -6,6 +6,9 @@
     table {
     border-collapse: collapse;
     width: 100%;
+    border-collapse: separate;
+    border-spacing: 20px;
+      
     tr {
         td {
           img {
@@ -13,6 +16,7 @@
             max-width: 20rem;
             display: block;
             margin: 0 auto;
+            padding: 0;
           }
       
           p {
@@ -29,6 +33,7 @@
     }
 }
 
+  
 
 .btn-zoom {
     display: inline-block;

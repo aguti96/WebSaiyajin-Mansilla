@@ -7,10 +7,11 @@ $fondo: url(https://i.pinimg.com/originals/2e/14/63/2e14634200b7c7328823c0f66838
   background-repeat: no-repeat;
 }
 
-.contactos,
-.titulo {
-  color: whitesmoke;
+main h1{
+    color: whitesmoke;
 }
+
+
 
 .logo {
   width: 5rem;
@@ -29,7 +30,7 @@ form {
     width: 100%;
     margin-bottom: 10px;
     font-weight: bold;
-    color: #333;
+    color: whitesmoke;
   }
 
   input[type=text], textarea {
