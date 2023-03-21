@@ -255,4 +255,23 @@ form input[type=submit]:hover {
   width: 5rem;
 }
 
+@media (max-width: 425px) {
+  .formulario label, .formulario input, .formulario textarea, .formulario button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .formulario textarea {
+    height: 100px;
+  }
+}
+.sucursales div, .sucursales p, .sucursales iframe, .sucursales img {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.col div, .col img, .col p {
+  max-width: 425px;
+  margin: 0 auto;
+}
+
 /*# sourceMappingURL=estilos.css.map */

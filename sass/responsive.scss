@@ -10,11 +10,7 @@
       }
     }
     
-    .menu{
-        h1, div, p, img{
-            width: 100px;
-            margin-bottom: 10px;
-        }
+
     }
     .sucursales{
        div, p, iframe, img{
@@ -30,35 +26,8 @@
           }
           
        }
-    }
-    .section {
-        background-color: #FFFFFF;
-        color: #000000;
-        
-        h2 {
-          font-size: 2rem;
-        }
-        
-        p {
-          font-size: 1.2rem;
-          line-height: 1.5;
-        }
-        
-        
-        @media screen and (max-width: 425px) {
-          padding: 2rem;
-          
-          h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-          }
-          
-          p {
-            font-size: 1rem;
-            line-height: 1.2;
-          }
-        }
-      }
+    
+    
       
 
   
