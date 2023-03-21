@@ -159,57 +159,80 @@ form input[type=submit]:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.productos {
-  background-image: url(https://i.pinimg.com/originals/2e/14/63/2e14634200b7c7328823c0f6683826b2.jpg);
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+.imagenes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.productos .logo {
-  width: 5rem;
+.imagenes table {
+  border-collapse: collapse;
+  width: 100%;
 }
-.productos .gorra {
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 20rem;
-  display: inline-block;
+.imagenes table tr td img {
+  width: 100%;
+  max-width: 20rem;
+  display: block;
+  margin: 0 auto;
 }
-.productos .remera {
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 20rem;
-  display: inline-block;
+.imagenes table tr td p {
+  text-align: center;
+  margin-top: 1rem;
 }
-.productos .funko {
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 20rem;
-  display: inline-block;
-}
-.productos .btn-zoom {
-  padding: 10px 20px;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-.productos .btn-zoom:hover {
-  transform: scale(1.1);
-}
-.productos .btn-zoom img {
-  transition: transform 0.5s ease;
-}
-.productos .btn-zoom:hover img {
-  transform: scale(1.2);
+.imagenes table tr td button {
+  display: block;
+  margin: 1rem auto;
 }
 
+.btn-zoom {
+  display: inline-block;
+  position: relative;
+  padding: 12px 32px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  background-color: blue;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+}
+.btn-zoom:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+.btn-zoom:hover:before {
+  height: 100%;
+}
+.btn-zoom:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+}
+.btn-zoom:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .servicios {
   background-image: url(https://i.pinimg.com/originals/2e/14/63/2e14634200b7c7328823c0f6683826b2.jpg);
   background-position: center center;
