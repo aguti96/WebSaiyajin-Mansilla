@@ -7,14 +7,14 @@ html {
   font-size: 100%;
 }
 
-.titulo {
-  color: whitesmoke;
+.titulo, h1 {
+  color: orangered;
 }
 
 .lorem {
   line-height: 2px;
   padding: 15px;
-  border: 5px inset white;
+  border: 5px inset orangered;
   margin: 15px;
 }
 
@@ -61,7 +61,7 @@ body {
 
 div p {
   font-weight: bold;
-  color: whitesmoke;
+  color: orangered;
   font-size: 25px;
 }
 
@@ -99,6 +99,26 @@ nav {
   background: linear-gradient(to right, #333, #666);
   color: #fff;
   text-align: right;
+}
+
+.titulo, h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #fff;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: normal;
+}
+
+p {
+  font-size: 1em;
+  font-weight: normal;
+}
+
+main h1, main h2, main h3, main p {
+  color: orangered;
 }
 
 .fondo {
