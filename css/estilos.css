@@ -36,6 +36,7 @@ ul li:not(.vegeta) {
   line-height: 2px;
   padding: 2px;
   border: 5px inset blue;
+  overflow: hidden;
 }
 .vegeta2 {
   line-height: 2px;
@@ -119,10 +120,6 @@ p {
 
 main h1, main h2, main h3, main p {
   color: orangered;
-}
-
-.col img.vegeta {
-  overflow: hidden;
 }
 
 .fondo {

@@ -37,6 +37,7 @@
     line-height: 2px;
     padding: 2px;
     border: 5px inset blue;
+    overflow: hidden;
   
     &2 {
       line-height: 2px;
@@ -140,11 +141,7 @@ main {
     }
   }
   
-  .col {
-    img.vegeta {
-      overflow: hidden;
-    }
-  }
+  
   
 
   
