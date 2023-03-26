@@ -122,8 +122,7 @@ main h1, main h2, main h3, main p {
 }
 
 .col img.vegeta {
-  max-width: 100%;
-  height: auto;
+  overflow: hidden;
 }
 
 .fondo {
