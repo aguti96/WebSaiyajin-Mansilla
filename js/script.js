@@ -1,33 +1,44 @@
-const personajes = [
-    "Goku",
-    "Vegeta",
-    "Piccolo",
-    "Gohan",
-    "Trunks",
-    "Bulma",
-    "Chi-Chi",
-    "Krillin",
-    "Tien",
-    "Yamcha",
-    "Majin Buu",
-    "Cell",
-    "Freezer",
-    "Broly",
-    "Jiren",
-    "Hit",
-    "Goten",
-  ];
+document.addEventListener("DOMContentLoaded", function() {
+    const personajes = [
+      "Goku",
+      "Vegeta",
+      "Piccolo",
+      "Gohan",
+      "Trunks",
+      "Bulma",
+      "Chi-Chi",
+      "Krillin",
+      "Tien",
+      "Yamcha",
+      "Majin Buu",
+      "Cell",
+      "Freezer",
+      "Broly",
+      "Jiren",
+      "Hit",
+      "Goten",
+    ];
+    
+    let personajesMostrados = [];
   
-  document.getElementById("btn-personaje").addEventListener("click", function() {
-    // Obtener un número aleatorio entre 0 y la longitud de la lista de personajes
-    const index = Math.floor(Math.random() * personajes.length);
-    // Obtener el nombre del personaje en el índice aleatorio
-    const personaje = personajes[index];
-    // Mostrar el nombre del personaje en una ventana emergente
-    alert("El personaje seleccionado es: " + personaje);
+    function mostrarPersonaje() {
+      if (personajesMostrados.length >= personajes.length) {
+        alert("Ya se han mostrado todos los personajes");
+        return;
+      }
+      
+      let index;
+      do {
+        index = Math.floor(Math.random() * personajes.length);
+      } while (personajesMostrados.includes(index));
+      
+      personajesMostrados.push(index);
+      const personaje = personajes[index];
+      alert("El personaje seleccionado es: " + personaje);
+    }
+  
+    document.getElementById("btn-personaje").addEventListener("click", mostrarPersonaje);
   });
-  const listaPersonajes = ["Goku", "Vegeta", "Piccolo", "Gohan", "Trunks", "Goten", "bulma", "krillin", "Chi-Chi", "Tien", "Yamcha", "Cell", "Majin-boo", "Freezer", "Broly", "Jiren", "Hit"];
-const indiceAleatorio = Math.floor(Math.random() * listaPersonajes.length);
-console.log("El personaje aleatorio es: " + listaPersonajes[indiceAleatorio]);
-
+  
+  
   
