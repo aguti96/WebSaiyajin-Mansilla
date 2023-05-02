@@ -141,6 +141,29 @@ main {
     }
   }
   
+  .botonera button {
+    background-color: #4CAF50; // Color de fondo
+    border: none;
+    color: white; // Color del texto
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: #3e8e41;
+    }
+  
+    &:active {
+      background-color: #4CAF50;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+  }
   
   
 
