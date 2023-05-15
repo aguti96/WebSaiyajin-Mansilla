@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function() {
   const personajes = [
     "Goku",
@@ -21,29 +22,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
   let personajesMostrados = [];
 
+  localStorage.setItem("personajes", JSON.stringify(personajes));
+
   function mostrarPersonaje() {
-    if (personajesMostrados.length >= personajes.length) {
+    const personajesGuardados = JSON.parse(localStorage.getItem("personajes"));
+
+    if (personajesMostrados.length >= personajesGuardados.length) {
       alert("Ya se han mostrado todos los personajes");
       return;
     }
 
     let index;
     do {
-      index = Math.floor(Math.random() * personajes.length);
+      index = Math.floor(Math.random() * personajesGuardados.length);
     } while (personajesMostrados.includes(index));
 
     personajesMostrados.push(index);
-    const personaje = personajes[index];
+    const personaje = personajesGuardados[index];
 
-    
     let opcion = prompt("Ingresa una opción:\n1. Sumar dos números\n2. Restar dos números\n3. Concatenar dos palabras");
 
-    
     let resultado;
     let valor1;
     let valor2;
 
-    
     if (opcion === "1") {
       valor1 = parseInt(prompt("Ingresa el primer número:"));
       valor2 = parseInt(prompt("Ingresa el segundo número:"));
@@ -61,12 +63,13 @@ document.addEventListener("DOMContentLoaded", function() {
       return;
     }
 
-    
-    alert("El resultado es: " + resultado);
+    localStorage.setItem("resultado", resultado);
+
+    const resultadoGuardado = localStorage.getItem("resultado");
+
+    alert("El resultado es: " + resultadoGuardado);
     alert("El personaje seleccionado es: " + personaje);
   }
 
   document.getElementById("btn-personaje").addEventListener("click", mostrarPersonaje);
 });
-
-  
