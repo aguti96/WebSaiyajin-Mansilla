@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function() {
   const personajes = [
     "Goku",
@@ -24,11 +23,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
   localStorage.setItem("personajes", JSON.stringify(personajes));
 
+  const resultadoElement = document.getElementById("resultado");
+  const personajeElement = document.getElementById("personaje");
+  const opcionInput = document.getElementById("opcion");
+  const valor1Input = document.getElementById("valor1");
+  const valor2Input = document.getElementById("valor2");
+  const calcularBtn = document.getElementById("calcular");
+  const mostrarBtn = document.getElementById("mostrar");
+
   function mostrarPersonaje() {
     const personajesGuardados = JSON.parse(localStorage.getItem("personajes"));
 
     if (personajesMostrados.length >= personajesGuardados.length) {
-      alert("Ya se han mostrado todos los personajes");
+      resultadoElement.textContent = "Ya se han mostrado todos los personajes";
       return;
     }
 
@@ -39,37 +46,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
     personajesMostrados.push(index);
     const personaje = personajesGuardados[index];
-
-    let opcion = prompt("Ingresa una opción:\n1. Sumar dos números\n2. Restar dos números\n3. Concatenar dos palabras");
-
-    let resultado;
-    let valor1;
-    let valor2;
-
-    if (opcion === "1") {
-      valor1 = parseInt(prompt("Ingresa el primer número:"));
-      valor2 = parseInt(prompt("Ingresa el segundo número:"));
-      resultado = valor1 + valor2;
-    } else if (opcion === "2") {
-      valor1 = parseInt(prompt("Ingresa el primer número:"));
-      valor2 = parseInt(prompt("Ingresa el segundo número:"));
-      resultado = valor1 - valor2;
-    } else if (opcion === "3") {
-      valor1 = prompt("Ingresa la primera palabra:");
-      valor2 = prompt("Ingresa la segunda palabra:");
-      resultado = valor1 + " " + valor2;
-    } else {
-      alert("Opción inválida");
-      return;
-    }
-
-    localStorage.setItem("resultado", resultado);
-
-    const resultadoGuardado = localStorage.getItem("resultado");
-
-    alert("El resultado es: " + resultadoGuardado);
-    alert("El personaje seleccionado es: " + personaje);
+    personajeElement.textContent = personaje;
   }
 
-  document.getElementById("btn-personaje").addEventListener("click", mostrarPersonaje);
+  function realizarOperacion() {
+    const opcion = opcionInput.value;
+    const valor1 = parseInt(valor1Input.value);
+    const valor2 = parseInt(valor2Input.value);
+    let resultado;
+
+    if (opcion === "1") {
+      resultado = valor1 + valor2;
+    } else if (opcion === "2") {
+      resultado = valor1 - valor2;
+    } else if (opcion === "3") {
+      resultado = valor1 + " " + valor2;
+    } else {
+      resultado = "Opción inválida";
+    }
+
+    resultadoElement.textContent = "El resultado es: " + resultado;
+  }
+
+  calcularBtn.addEventListener("click", realizarOperacion);
+  mostrarBtn.addEventListener("click", mostrarPersonaje);
 });
