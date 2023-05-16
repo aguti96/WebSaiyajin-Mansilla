@@ -1,5 +1,15 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const personajes = [
+const resultadoElement = document.getElementById("resultado");
+const personajeElement = document.getElementById("personaje");
+const opcionInput = document.getElementById("opcion");
+const valor1Input = document.getElementById("valor1");
+const valor2Input = document.getElementById("valor2");
+const calcularBtn = document.getElementById("calcular");
+const mostrarBtn = document.getElementById("mostrar");
+let personajes=[]
+document.addEventListener("DOMContentLoaded", start) 
+
+function start(){
+  personajes = [
     "Goku",
     "Vegeta",
     "Piccolo",
@@ -18,18 +28,12 @@ document.addEventListener("DOMContentLoaded", function() {
     "Hit",
     "Goten",
   ];
-
+};
   let personajesMostrados = [];
 
   localStorage.setItem("personajes", JSON.stringify(personajes));
 
-  const resultadoElement = document.getElementById("resultado");
-  const personajeElement = document.getElementById("personaje");
-  const opcionInput = document.getElementById("opcion");
-  const valor1Input = document.getElementById("valor1");
-  const valor2Input = document.getElementById("valor2");
-  const calcularBtn = document.getElementById("calcular");
-  const mostrarBtn = document.getElementById("mostrar");
+
 
   function mostrarPersonaje() {
     const personajesGuardados = JSON.parse(localStorage.getItem("personajes"));
@@ -48,26 +52,31 @@ document.addEventListener("DOMContentLoaded", function() {
     const personaje = personajesGuardados[index];
     personajeElement.textContent = personaje;
   }
+  document.getElementById("btn-personaje").setAttribute("onclick","realizarOperacion()");
+  
 
-  function realizarOperacion() {
-    const opcion = opcionInput.value;
-    const valor1 = parseInt(valor1Input.value);
-    const valor2 = parseInt(valor2Input.value);
-    let resultado;
+  
+  /*calcularBtn.addEventListener("click", realizarOperacion);
+  /*mostrarBtn.addEventListener("click", mostrarPersonaje());
+});*/
 
-    if (opcion === "1") {
-      resultado = valor1 + valor2;
-    } else if (opcion === "2") {
-      resultado = valor1 - valor2;
-    } else if (opcion === "3") {
-      resultado = valor1 + " " + valor2;
-    } else {
-      resultado = "Opción inválida";
-    }
+function realizarOperacion() {
+  const opcion = opcionInput.value;
+  const valor1 = parseInt(valor1Input.value);
+  const valor2 = parseInt(valor2Input.value);
+  let resultado;
 
-    resultadoElement.textContent = "El resultado es: " + resultado;
+  if (opcion === "1") {
+    resultado = valor1 + valor2;
+  } else if (opcion === "2") {
+    resultado = valor1 - valor2;
+  } else if (opcion === "3") {
+    resultado = valor1 + " " + valor2;
+  } else {
+    resultado = "Opción inválida";
   }
 
-  calcularBtn.addEventListener("click", realizarOperacion);
-  mostrarBtn.addEventListener("click", mostrarPersonaje);
-});
+console.log(personajes)
+
+  resultadoElement.textContent = "El resultado es: " + personajes[resultado];
+}
