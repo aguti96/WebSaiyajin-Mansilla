@@ -66,45 +66,84 @@
 <main>
   <h1>Productos</h1>
   <div class="mi-contenedor">
-   <h2>
-       Estos son nuestros productos elegidos especialmente por el supremo Kaio-sama!
-   </h2>
+    <h2>Estos son nuestros productos elegidos especialmente por el supremo Kaio-sama!</h2>
   </div>
-<div class="imagenes">
-  <table>
-    <tr>
-      <td>
-        <img class="gorra" src="https://cdn.shopify.com/s/files/1/0219/4348/4496/products/p-CLDBZ21MV2_1800x.jpg?v=1663761414" alt="producto1">
-      </td>
-      <td>
-        <p>Gorra de Majin Vegeta</p>
-        <p>Precio: $10.00</p>
-        <button class="btn-zoom">Comprar</button>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <img class="remera" src="https://d22fxaf9t8d39k.cloudfront.net/2d4293d847f3162a71be4fd193a0a8e9f79ac14404706d32a10e2f46710aa23a95775.jpeg" alt="Producto 2">
-      </td>
-      <td>
-        <p>Remera Saiyajin</p>
-        <p>Precio: $20.00</p>
-        <button class="btn-zoom">Comprar</button>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <img class="funko" src="https://i0.wp.com/vinyltoys.co/wp-content/uploads/2022/05/Majin-Vegeta.png?fit=500%2C500&ssl=1" alt="Producto 3">
-      </td>
-      <td>
-        <p>Majin-Vegeta Funko Pop</p>
-        <p>Precio: $30.00</p>
-        <button class="btn-zoom">Comprar</button>
-      </td>
-    </tr>
-  </table>
-  
+  <div class="imagenes">
+    <table>
+      <tr>
+        <td>
+          <img class="gorra" src="https://cdn.shopify.com/s/files/1/0219/4348/4496/products/p-CLDBZ21MV2_1800x.jpg?v=1663761414" alt="producto1">
+        </td>
+        <td>
+          <p>Gorra de Majin Vegeta</p>
+          <p>Precio: $10.00</p>
+          <button class="btn-zoom" onclick="agregarAlCarrito('Gorra de Majin Vegeta', 10.00)">Comprar</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img class="remera" src="https://d22fxaf9t8d39k.cloudfront.net/2d4293d847f3162a71be4fd193a0a8e9f79ac14404706d32a10e2f46710aa23a95775.jpeg" alt="Producto 2">
+        </td>
+        <td>
+          <p>Remera Saiyajin</p>
+          <p>Precio: $20.00</p>
+          <button class="btn-zoom" onclick="agregarAlCarrito('Remera Saiyajin', 20.00)">Comprar</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img class="funko" src="https://i0.wp.com/vinyltoys.co/wp-content/uploads/2022/05/Majin-Vegeta.png?fit=500%2C500&ssl=1" alt="Producto 3">
+        </td>
+        <td>
+          <p>Majin-Vegeta Funko Pop</p>
+          <p>Precio: $30.00</p>
+          <button class="btn-zoom" onclick="agregarAlCarrito('Majin-Vegeta Funko Pop', 30.00)">Comprar</button>
+        </td>
+      </tr>
+    </table>
   </div>
+
+  <div id="carrito-seccion">
+    <h2>Carrito de Compras</h2>
+    <ul id="lista-productos">
+      <!-- Los productos agregados se mostrarán aquí -->
+    </ul>
+
+    <h3>Total: <span id="total">0</span></h3>
+
+    <button id="vaciar-carrito" onclick="vaciarCarrito()">Vaciar Carrito</button>
+  </div>
+
+  <script>
+    function agregarAlCarrito(nombre, precio) {
+      const carritoElement = document.getElementById("lista-productos");
+      const totalElement = document.getElementById("total");
+
+      // Crear el elemento de lista para el producto
+      const productoElement = document.createElement("li");
+      productoElement.textContent = `${nombre} - Precio: $${precio.toFixed(2)}`;
+
+      // Agregar el producto al carrito
+      carritoElement.appendChild(productoElement);
+
+      // Actualizar el total
+      const total = parseFloat(totalElement.textContent);
+      totalElement.textContent = (total + precio).toFixed(2);
+    }
+
+    function vaciarCarrito() {
+      const carritoElement = document.getElementById("lista-productos");
+      const totalElement = document.getElementById("total");
+
+      // Vaciar el carrito (eliminar todos los elementos)
+      while (carritoElement.firstChild) {
+        carritoElement.removeChild(carritoElement.firstChild);
+      }
+
+      // Restablecer el total a cero
+      totalElement.textContent = "0.00";
+    }
+  </script>
   
   
 </div>
