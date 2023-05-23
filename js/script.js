@@ -5,10 +5,11 @@ const valor1Input = document.getElementById("valor1");
 const valor2Input = document.getElementById("valor2");
 const calcularBtn = document.getElementById("calcular");
 const mostrarBtn = document.getElementById("mostrar");
-let personajes=[]
-document.addEventListener("DOMContentLoaded", start) 
+let personajes = [];
 
-function start(){
+document.addEventListener("DOMContentLoaded", start);
+
+function start() {
   personajes = [
     "Goku",
     "Vegeta",
@@ -28,37 +29,34 @@ function start(){
     "Hit",
     "Goten",
   ];
-};
-  let personajesMostrados = [];
+}
 
-  localStorage.setItem("personajes", JSON.stringify(personajes));
+let personajesMostrados = [];
+localStorage.setItem("personajes", JSON.stringify(personajes));
 
+function mostrarPersonaje() {
+  const personajesGuardados = JSON.parse(localStorage.getItem("personajes"));
 
-
-  function mostrarPersonaje() {
-    const personajesGuardados = JSON.parse(localStorage.getItem("personajes"));
-
-    if (personajesMostrados.length >= personajesGuardados.length) {
-      resultadoElement.textContent = "Ya se han mostrado todos los personajes";
-      return;
-    }
-
-    let index;
-    do {
-      index = Math.floor(Math.random() * personajesGuardados.length);
-    } while (personajesMostrados.includes(index));
-
-    personajesMostrados.push(index);
-    const personaje = personajesGuardados[index];
-    personajeElement.textContent = personaje;
+  if (personajesMostrados.length >= personajesGuardados.length) {
+    resultadoElement.textContent = "Ya se han mostrado todos los personajes";
+    return;
   }
-  document.getElementById("btn-personaje").setAttribute("onclick","realizarOperacion()");
-  
 
-  
-  /*calcularBtn.addEventListener("click", realizarOperacion);
-  /*mostrarBtn.addEventListener("click", mostrarPersonaje());
-});*/
+  let index;
+  do {
+    index = Math.floor(Math.random() * personajesGuardados.length);
+  } while (personajesMostrados.includes(index));
+
+  personajesMostrados.push(index);
+  const personaje = personajesGuardados[index];
+  personajeElement.textContent = personaje;
+}
+
+document.getElementById("btn-personaje").setAttribute("onclick", "realizarOperacionWithDelay()");
+
+function realizarOperacionWithDelay() {
+  setTimeout(realizarOperacion, 3000);
+}
 
 function realizarOperacion() {
   const opcion = opcionInput.value;
@@ -76,7 +74,37 @@ function realizarOperacion() {
     resultado = "Opción inválida";
   }
 
-console.log(personajes)
-
   resultadoElement.textContent = "El resultado es: " + personajes[resultado];
 }
+
+
+
+function agregarAlCarrito(nombre, precio) {
+  const carritoElement = document.getElementById("lista-productos");
+  const totalElement = document.getElementById("total");
+
+  // Crear el elemento de lista para el producto
+  const productoElement = document.createElement("li");
+  productoElement.textContent = `${nombre} - Precio: $${precio.toFixed(2)}`;
+
+  // Agregar el producto al carrito
+  carritoElement.appendChild(productoElement);
+
+  // Actualizar el total
+  const total = parseFloat(totalElement.textContent);
+  totalElement.textContent = (total + precio).toFixed(2);
+}
+
+function vaciarCarrito() {
+  const carritoElement = document.getElementById("lista-productos");
+  const totalElement = document.getElementById("total");
+
+  // Vaciar el carrito (eliminar todos los elementos)
+  while (carritoElement.firstChild) {
+    carritoElement.removeChild(carritoElement.firstChild);
+  }
+
+  // Restablecer el total a cero
+  totalElement.textContent = "0.00";
+}
+
