@@ -52,10 +52,34 @@ function mostrarPersonaje() {
   personajeElement.textContent = personaje;
 }
 
-document.getElementById("btn-personaje").setAttribute("onclick", "realizarOperacionWithDelay()");
+document.getElementById("btn-personaje").addEventListener("click", realizarOperacionWithDelay);
 
 function realizarOperacionWithDelay() {
-  setTimeout(realizarOperacion, 3000);
+  const personajesGuardados = JSON.parse(localStorage.getItem("personajes"));
+
+  const personajeAleatorio = personajesGuardados[Math.floor(Math.random() * personajesGuardados.length)];
+
+  Swal.fire({
+    title: personajeAleatorio,
+    html: 'I will close in <b></b> milliseconds.',
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: () => {
+      Swal.showLoading();
+      const b = Swal.getHtmlContainer().querySelector('b');
+      timerInterval = setInterval(() => {
+        b.textContent = Swal.getTimerLeft();
+      }, 100);
+    },
+    willClose: () => {
+      clearInterval(timerInterval);
+      mostrarPersonaje();
+    }
+  }).then((result) => {
+    if (result.dismiss === Swal.DismissReason.timer) {
+      console.log('I was closed by the timer');
+    }
+  });
 }
 
 function realizarOperacion() {
@@ -63,6 +87,7 @@ function realizarOperacion() {
   const valor1 = parseInt(valor1Input.value);
   const valor2 = parseInt(valor2Input.value);
   let resultado;
+  const personajesGuardados = JSON.parse(localStorage.getItem("personajes"));
 
   if (opcion === "1") {
     resultado = valor1 + valor2;
@@ -74,10 +99,8 @@ function realizarOperacion() {
     resultado = "Opción inválida";
   }
 
-  resultadoElement.textContent = "El resultado es: " + personajes[resultado];
+  resultadoElement.textContent = "El resultado es: " + personajesGuardados[resultado];
 }
-
-
 
 function agregarAlCarrito(nombre, precio) {
   const carritoElement = document.getElementById("lista-productos");
@@ -107,4 +130,3 @@ function vaciarCarrito() {
   // Restablecer el total a cero
   totalElement.textContent = "0.00";
 }
-
