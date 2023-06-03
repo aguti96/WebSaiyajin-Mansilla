@@ -1,0 +1,28 @@
+{
+    "personajes": [
+      "Goku",
+      "Vegeta",
+      "Piccolo",
+      "Gohan",
+      "Trunks",
+      "Bulma",
+      "Chi-Chi",
+      "Krillin",
+      "Tien",
+      "Yamcha",
+      "Majin Buu",
+      "Cell",
+      "Freezer",
+      "Broly",
+      "Jiren",
+      "Hit",
+      "Goten"
+    ],
+    "productos": [
+      { "nombre": "Camiseta", "precio": 20 },
+      { "nombre": "Majin-Vegeta Funko Pop", "precio": 30 },
+      
+      { "nombre": "Gorra", "precio": 10 }
+    ]
+  }
+  

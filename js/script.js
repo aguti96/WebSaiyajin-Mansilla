@@ -10,32 +10,27 @@ let personajes = [];
 document.addEventListener("DOMContentLoaded", start);
 
 function start() {
-  personajes = [
-    "Goku",
-    "Vegeta",
-    "Piccolo",
-    "Gohan",
-    "Trunks",
-    "Bulma",
-    "Chi-Chi",
-    "Krillin",
-    "Tien",
-    "Yamcha",
-    "Majin Buu",
-    "Cell",
-    "Freezer",
-    "Broly",
-    "Jiren",
-    "Hit",
-    "Goten",
-  ];
+  console.log("Estamos en start");
+  cargarDatos();
+}
+
+function cargarDatos() {
+  fetch("datos.json")
+    .then(response => response.json())
+    .then(data => {
+      personajes = data;
+      localStorage.setItem("personajes", JSON.stringify(personajes));
+      console.log("Datos cargados:", personajes);
+    })
+    .catch(error => console.error("Error al cargar los datos:", error));
 }
 
 let personajesMostrados = [];
-localStorage.setItem("personajes", JSON.stringify(personajes));
 
 function mostrarPersonaje() {
   const personajesGuardados = JSON.parse(localStorage.getItem("personajes"));
+  console.log("Personajes guardados:", personajesGuardados);
+  console.log("Personajes mostrados:", personajesMostrados);
 
   if (personajesMostrados.length >= personajesGuardados.length) {
     resultadoElement.textContent = "Ya se han mostrado todos los personajes";
@@ -55,18 +50,16 @@ function mostrarPersonaje() {
 document.getElementById("btn-personaje").addEventListener("click", realizarOperacionWithDelay);
 
 function realizarOperacionWithDelay() {
-  const personajesGuardados = JSON.parse(localStorage.getItem("personajes"));
-
-  const personajeAleatorio = personajesGuardados[Math.floor(Math.random() * personajesGuardados.length)];
+  personajesGuardados = JSON.parse(localStorage.getItem("personajes"));
 
   Swal.fire({
-    title: personajeAleatorio,
-    html: 'I will close in <b></b> milliseconds.',
+    title: "Y el personaje que te representa es...",
+    html: "I will close in <b></b> milliseconds.",
     timer: 2000,
     timerProgressBar: true,
     didOpen: () => {
       Swal.showLoading();
-      const b = Swal.getHtmlContainer().querySelector('b');
+      const b = Swal.getHtmlContainer().querySelector("b");
       timerInterval = setInterval(() => {
         b.textContent = Swal.getTimerLeft();
       }, 100);
@@ -77,43 +70,20 @@ function realizarOperacionWithDelay() {
     }
   }).then((result) => {
     if (result.dismiss === Swal.DismissReason.timer) {
-      console.log('I was closed by the timer');
+      console.log("I was closed by the timer");
     }
   });
-}
-
-function realizarOperacion() {
-  const opcion = opcionInput.value;
-  const valor1 = parseInt(valor1Input.value);
-  const valor2 = parseInt(valor2Input.value);
-  let resultado;
-  const personajesGuardados = JSON.parse(localStorage.getItem("personajes"));
-
-  if (opcion === "1") {
-    resultado = valor1 + valor2;
-  } else if (opcion === "2") {
-    resultado = valor1 - valor2;
-  } else if (opcion === "3") {
-    resultado = valor1 + " " + valor2;
-  } else {
-    resultado = "Opción inválida";
-  }
-
-  resultadoElement.textContent = "El resultado es: " + personajesGuardados[resultado];
 }
 
 function agregarAlCarrito(nombre, precio) {
   const carritoElement = document.getElementById("lista-productos");
   const totalElement = document.getElementById("total");
 
-  // Crear el elemento de lista para el producto
   const productoElement = document.createElement("li");
   productoElement.textContent = `${nombre} - Precio: $${precio.toFixed(2)}`;
 
-  // Agregar el producto al carrito
   carritoElement.appendChild(productoElement);
 
-  // Actualizar el total
   const total = parseFloat(totalElement.textContent);
   totalElement.textContent = (total + precio).toFixed(2);
 }
@@ -122,11 +92,9 @@ function vaciarCarrito() {
   const carritoElement = document.getElementById("lista-productos");
   const totalElement = document.getElementById("total");
 
-  // Vaciar el carrito (eliminar todos los elementos)
   while (carritoElement.firstChild) {
     carritoElement.removeChild(carritoElement.firstChild);
   }
 
-  // Restablecer el total a cero
   totalElement.textContent = "0.00";
 }
