@@ -15,10 +15,10 @@ function start() {
 }
 
 function cargarDatos() {
-  fetch("datos.json")
+  fetch("js/datos.json")
     .then(response => response.json())
     .then(data => {
-      personajes = data;
+      personajes = data.personajes;
       localStorage.setItem("personajes", JSON.stringify(personajes));
       console.log("Datos cargados:", personajes);
     })
